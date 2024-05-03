@@ -8,5 +8,7 @@ public class Data {
   }
   public static class Settings {
     public static final int gravity = 30;
+    public static final int jumpPower = 50;
+    public static final int delay = 50;
   }
 }

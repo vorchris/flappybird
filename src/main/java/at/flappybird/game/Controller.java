@@ -13,6 +13,7 @@ public class Controller extends AnimationTimer implements Initializable{
     @FXML
     Pane pane;
 
+    Player player;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -21,6 +22,7 @@ public class Controller extends AnimationTimer implements Initializable{
 
     @Override
     public void handle(long l) {
-
+        player.getPlayer().setX(100);
+        player.getPlayer().setY(100);
     }
 }
