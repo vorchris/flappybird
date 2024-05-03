@@ -1,17 +1,26 @@
 package at.flappybird.game;
 
-import javafx.scene.layout.Pane;
-import lombok.Data;
+import javafx.scene.Group;
+import javafx.scene.image.ImageView;
 
-@Data
-public class Pipe {
+import java.util.Random;
+
+public class Pipe extends Group {
     int amount;
     int height;
     int width;
-    int dist;
+    public Pipe(int amount, int height, int width) {
+        this.amount = amount;
+        this.height = height;
+        this.width = width;
 
-    public void init(Pane p){
+        ImageView top = new ImageView(Data.Images.pipeTop);
+        ImageView bottom = new ImageView(Data.Images.pipeTop);
+
 
     }
-
+    private int getRandomGap(){
+        Random rand = new Random();
+        return rand.nextInt(2,amount);
+    }
 }
