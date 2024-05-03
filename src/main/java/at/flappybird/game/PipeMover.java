@@ -1,6 +1,7 @@
 package at.flappybird.game;
 
 import javafx.scene.Group;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
@@ -29,5 +30,9 @@ public class PipeMover extends Group {
                 p.setX(width);
             }
         }
+    }
+
+    public boolean colliding(ImageView iw){
+        return pipes.stream().anyMatch(x -> x.colliding(iw));
     }
 }

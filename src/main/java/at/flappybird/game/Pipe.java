@@ -1,5 +1,6 @@
 package at.flappybird.game;
 
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import lombok.Getter;
@@ -60,4 +61,14 @@ public class Pipe extends Group {
         allImages.forEach(a -> a.setX(x));
     }
 
+    public boolean colliding(ImageView iw){
+        Bounds b1 = iw.getBoundsInParent();
+        for(ImageView imageView : allImages){
+            Bounds b2 = imageView.getBoundsInParent();
+            if(b1.intersects(b2)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

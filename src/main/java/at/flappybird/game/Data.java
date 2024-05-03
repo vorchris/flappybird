@@ -7,7 +7,7 @@ public class Data {
     public static final String bird = "file:assets/Images/player.png";
   }
   public static class Settings {
-    public static final int gravity = 30;
+    public static final int gravity = 3;
     public static final int jumpPower = 50;
     public static final int delay = 50;
   }
