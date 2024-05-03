@@ -13,15 +13,19 @@ import java.util.ResourceBundle;
 public class Controller extends AnimationTimer implements Initializable{
     @FXML
     Pane pane;
-    Pipe p;
+    PipeMover pm;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("loading...");
+        pm = new PipeMover(1000, 500, 100);
+        pane.getChildren().add(pm);
+        this.start();
     }
 
 
     @Override
     public void handle(long l) {
+        pm.movePipes(-1);
     }
 }

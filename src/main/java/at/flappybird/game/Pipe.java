@@ -2,11 +2,15 @@ package at.flappybird.game;
 
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Pipe extends Group {
+    @Getter
+    int x;
     int amount;
     int height;
 
@@ -51,7 +55,9 @@ public class Pipe extends Group {
         Random rand = new Random();
         return rand.nextInt(2,amount);
     }
-    public void move(int i){
-        allImages.stream().forEach(x -> x.setX(x.getX() + i));
+    public void setX(int x){
+        this.x = x;
+        allImages.forEach(a -> a.setX(x));
     }
+
 }
