@@ -10,7 +10,8 @@ import javafx.util.Duration;
 
 public class Player {
   @FXML
-  private ImageView imageView;
+  private ImageView imageView;;
+  private double speed = 1;
 
   public Player() {
     imageView = new ImageView(Data.Images.bird);
@@ -18,17 +19,13 @@ public class Player {
 
   public void handleInput(KeyEvent event) {
     if (event.getCode() == KeyCode.SPACE) {
-      Timeline timeline = new Timeline(
-              new KeyFrame(Duration.millis(Data.Settings.delay), e -> {
-                imageView.setY(imageView.getY() - Data.Settings.jumpPower);
-              })
-      );
-      timeline.play();
+      speed -= Data.Settings.jumpPower; //Change to speed = -Data.Settings.jumpPower for typical Flappybird Physics
     }
   }
 
   public void applyGravity() {
-    imageView.setY(imageView.getY() + Data.Settings.gravity);
+    speed += Data.Settings.gravity;
+    imageView.setY(imageView.getY() + speed);
   }
 
   public ImageView getImageView() {

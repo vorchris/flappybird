@@ -22,7 +22,7 @@ public class Pipe extends Group {
 
         int opening = getRandomGap();
         for(int i = 0; i < amount; i++) {
-            if(i != opening){
+            if(i != opening && i != opening + 1){
                 ImageView iw = new ImageView(Data.Images.pipeBody);
                 allImages.add(iw);
                 iw.setFitHeight(32);
@@ -49,12 +49,12 @@ public class Pipe extends Group {
         bottom.setFitWidth(32);
 
         top.setY((opening - 1) * 32);
-        bottom.setY((opening + 1) * 32);
+        bottom.setY((opening + 2) * 32);
         this.getChildren().addAll(top, bottom);
     }
     private int getRandomGap(){
         Random rand = new Random();
-        return rand.nextInt(2,amount);
+        return rand.nextInt(3,amount-1);
     }
     public void setX(int x){
         this.x = x;
