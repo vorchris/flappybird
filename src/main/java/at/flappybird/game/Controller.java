@@ -3,6 +3,8 @@ package at.flappybird.game;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
@@ -12,25 +14,68 @@ import java.util.ResourceBundle;
 public class Controller extends AnimationTimer implements Initializable{
     @FXML
     Pane pane;
+    @FXML
+    Label scoreLabel;
+
+    @FXML
+    Label gameOverLable;
+    @FXML
+    Button restartButton;
+    @FXML
+    Button quitButton;
+
 
     Player player = new Player();
-    PipeMover pm = new PipeMover(1000, 500, 100);
+    PipeMover pm = new PipeMover(1000, 500, 500);
+    boolean dead = false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("loading...");
         pane.getChildren().add(player.getImageView());
         pane.getChildren().add(pm);
-        player.getImageView().setX(100);
-        player.getImageView().setY(100);
+        gameOverLable.setVisible(false);
+        restartButton.setVisible(false);
+        quitButton.setVisible(false);
+        gameOverLable.toFront();
+        restartButton.toFront();
+        quitButton.toFront();
         this.start();
     }
 
     @Override
     public void handle(long l) {
-        pm.movePipes(-1);
-        player.applyGravity(); // todo
+        if(!dead){
+            pm.movePipes();
+            player.applyGravity();
+            scoreLabel.setText("Score: " + pm.getScore());
+            if(pm.colliding(player.getImageView())){
+                dead = true;
+                displayDead();
+            }
+        }
     }
+    public void displayDead(){
+        gameOverLable.setVisible(true);
+        restartButton.setVisible(true);
+        quitButton.setVisible(true);
+    }
+    public void quit(){
+        System.exit(0);
+    }
+
+    public void restart(){
+        player.restart();
+        pm.restart();
+        dead = false;
+
+        gameOverLable.setVisible(false);
+        restartButton.setVisible(false);
+        quitButton.setVisible(false);
+
+        System.out.println("test");
+    }
+
 
     public void keyPressed(KeyEvent keyEvent) {
         player.handleInput(keyEvent);

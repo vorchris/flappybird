@@ -15,6 +15,8 @@ public class Player {
 
   public Player() {
     imageView = new ImageView(Data.Images.bird);
+    imageView.setX(Data.Settings.spawnPlayerX);
+    imageView.setY(Data.Settings.spawnPlayerY);
   }
 
   public void handleInput(KeyEvent event) {
@@ -26,6 +28,10 @@ public class Player {
   public void applyGravity() {
     speed += Data.Settings.gravity;
     imageView.setY(imageView.getY() + speed);
+  }
+  public void restart(){
+    speed = 1;
+    imageView.setY(100);
   }
 
   public ImageView getImageView() {

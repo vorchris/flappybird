@@ -71,4 +71,7 @@ public class Pipe extends Group {
         }
         return false;
     }
+    public void delete(){
+        allImages.forEach(a -> this.getChildren().remove(a));
+    }
 }
