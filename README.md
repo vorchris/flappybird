@@ -1,3 +1,3 @@
 # Flappybird
 
-simple Flappybird bird clone
+A simple flappybird-clone in javaFx
