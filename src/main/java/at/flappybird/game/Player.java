@@ -4,10 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import lombok.Getter;
 
 public class Player {
     @FXML private ImageView imageView;
-    ;
+    
+    @Getter
     private double speed = 1;
 
     public Player() {
