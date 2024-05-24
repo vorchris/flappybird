@@ -64,6 +64,9 @@ public class Pipe extends Group {
 
     public boolean colliding(ImageView iw){
         Bounds b1 = iw.getBoundsInParent();
+        if(b1.getMaxY() >= height || b1.getMinY() <= 0){
+            return true;
+        }
         for(ImageView imageView : allImages){
             Bounds b2 = imageView.getBoundsInParent();
             if(b1.intersects(b2)){
