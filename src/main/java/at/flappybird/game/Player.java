@@ -31,8 +31,9 @@ public class Player {
         speed += Data.Settings.gravity;
         imageView.setY(imageView.getY() + speed);
     }
+
     public void restart() {
-        speed = 1;
+        speed = 2;
         imageView.setY(100);
     }
 
