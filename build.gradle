@@ -26,7 +26,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'at.flappybird.game'
-    mainClass = 'at.flappybird.game.HelloApplication'
+    mainClass = 'at.flappybird.game.Application'
 }
 
 javafx {

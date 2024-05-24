@@ -20,7 +20,6 @@ public class PipeMover extends Group {
     }
     private void initPipes(){
         amountOfPipes = width / (distBetweenPillars + 32) + 1;
-        System.out.println(amountOfPipes);
         for(int i = 0; i < amountOfPipes; i++){
             Pipe p = new Pipe(height);
             p.setX(width + (i * (distBetweenPillars + 32)));
@@ -33,11 +32,19 @@ public class PipeMover extends Group {
             Pipe p = pipes.get(i);
             p.setX(p.getX() - at.flappybird.game.Data.Settings.pipeSpeed);
             if(p.getX() < -32){
-                p.setX(width);
+                rearrangePipe(p);
                 score++;
-                System.out.println(score);
             }
         }
+    }
+    private void rearrangePipe(Pipe p){
+        this.getChildren().remove(p);
+        pipes.remove(p);
+
+        Pipe newPipe = new Pipe(height);
+        newPipe.setX(width);
+        this.getChildren().add(newPipe);
+        pipes.add(newPipe);
     }
 
     public boolean colliding(ImageView iw){
@@ -45,6 +52,7 @@ public class PipeMover extends Group {
     }
     public void restart(){
         pipes.forEach(Pipe::delete);
+        score = 0;
         pipes.clear();
         initPipes();
     }

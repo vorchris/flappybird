@@ -54,6 +54,7 @@ public class Pipe extends Group {
     }
     private int getRandomGap(){
         Random rand = new Random();
+        System.out.println("random number form 3 to " + (amount-1));
         return rand.nextInt(3,amount-1);
     }
     public void setX(int x){

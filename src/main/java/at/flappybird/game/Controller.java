@@ -72,8 +72,6 @@ public class Controller extends AnimationTimer implements Initializable{
         gameOverLable.setVisible(false);
         restartButton.setVisible(false);
         quitButton.setVisible(false);
-
-        System.out.println("test");
     }
 
 
