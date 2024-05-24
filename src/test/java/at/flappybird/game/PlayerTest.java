@@ -11,6 +11,7 @@ public class PlayerTest {
     @Test
     void testRestart() {
         player.restart();
+        System.out.println("test");
         assertEquals(100, player.getImageView().getY());
     }
 }

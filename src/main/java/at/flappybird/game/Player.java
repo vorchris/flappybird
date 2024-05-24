@@ -7,10 +7,9 @@ import javafx.scene.input.KeyEvent;
 import lombok.Getter;
 
 public class Player {
-    @FXML private ImageView imageView;
-    
-    @Getter
-    private double speed = 1;
+    @Getter @FXML private ImageView imageView;
+
+    @Getter private double speed = 1;
 
     public Player() {
         imageView = new ImageView(Data.Images.bird);
@@ -36,6 +35,4 @@ public class Player {
         speed = 2;
         imageView.setY(100);
     }
-
-    public ImageView getImageView() { return imageView; }
 }
