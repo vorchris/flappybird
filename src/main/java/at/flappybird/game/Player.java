@@ -19,10 +19,7 @@ public class Player {
 
     public void handleInput(KeyEvent event) {
         if (event.getCode() == KeyCode.SPACE) {
-            speed -=
-                Data.Settings
-                    .jumpPower; // Change to speed = -Data.Settings.jumpPower
-                                // for typical Flappybird Physics
+            speed -= Data.Settings.jumpPower;
         }
     }
 
