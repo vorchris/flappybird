@@ -1,17 +1,15 @@
 package at.flappybird.game;
 
+import java.util.ArrayList;
+import java.util.Random;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 public class Pipe extends Group {
-    @Getter
-    int x;
+    @Getter int x;
     int amount;
     int height;
 
@@ -21,8 +19,8 @@ public class Pipe extends Group {
         this.height = height;
 
         int opening = getRandomGap();
-        for(int i = 0; i < amount; i++) {
-            if(i != opening && i != opening + 1){
+        for (int i = 0; i < amount; i++) {
+            if (i != opening && i != opening + 1) {
                 ImageView iw = new ImageView(Data.Images.pipeBody);
                 allImages.add(iw);
                 iw.setFitHeight(32);
@@ -52,30 +50,30 @@ public class Pipe extends Group {
         bottom.setY((opening + 2) * 32);
         this.getChildren().addAll(top, bottom);
     }
-    private int getRandomGap(){
+    private int getRandomGap() {
         Random rand = new Random();
-        System.out.println("random number form 3 to " + (amount-1));
-        return rand.nextInt(3,amount-1);
+        System.out.println("random number form 3 to " + (amount - 1));
+        return rand.nextInt(3, amount - 1);
     }
-    public void setX(int x){
+    public void setX(int x) {
         this.x = x;
         allImages.forEach(a -> a.setX(x));
     }
 
-    public boolean colliding(ImageView iw){
+    public boolean colliding(ImageView iw) {
         Bounds b1 = iw.getBoundsInParent();
-        if(b1.getMaxY() >= height || b1.getMinY() <= 0){
+        if (b1.getMaxY() >= height || b1.getMinY() <= 0) {
             return true;
         }
-        for(ImageView imageView : allImages){
+        for (ImageView imageView : allImages) {
             Bounds b2 = imageView.getBoundsInParent();
-            if(b1.intersects(b2)){
+            if (b1.intersects(b2)) {
                 return true;
             }
         }
         return false;
     }
-    public void delete(){
+    public void delete() {
         allImages.forEach(a -> this.getChildren().remove(a));
     }
 }
