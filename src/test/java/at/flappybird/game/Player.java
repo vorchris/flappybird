@@ -1,1 +1,0 @@
-package at.flappybird.game;

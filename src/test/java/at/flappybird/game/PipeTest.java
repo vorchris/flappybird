@@ -1,28 +1,13 @@
 package at.flappybird.game;
 
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 class PipeTest {
 
-  @Test
-  void setX() {
-  }
-
-  @Test
-  void colliding() {
-  }
-
-  @Test
-  void delete() {
-  }
-
-  @Test
-  void getX() {
-  }
-
-  @Test
-  void getHeight() {
-  }
+    @Test
+    void demo() {
+      assertTrue(true);
+    }
 }
