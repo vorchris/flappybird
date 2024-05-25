@@ -44,15 +44,13 @@ public class Controller extends AnimationTimer implements Initializable {
             scoreLabel.setText("Score: " + pm.getScore());
             if (pm.colliding(player.getImageView())) {
                 dead = true;
-                displayDead();
+                gameOverLable.setVisible(true);
+                restartButton.setVisible(true);
+                quitButton.setVisible(true);
             }
         }
     }
-    public void displayDead() {
-        gameOverLable.setVisible(true);
-        restartButton.setVisible(true);
-        quitButton.setVisible(true);
-    }
+
     public void quit() { System.exit(0); }
 
     public void restart() {

@@ -8,11 +8,11 @@ public class Data {
         public static final String bird = "file:assets/Images/player.png";
     }
     public static class Settings {
-        public static final double gravity = 0.05;
-        public static final double jumpPower = 2.5;
+        public static final double gravity = 600;
+        public static final double jumpPower = 500;
         public static final int spawnPlayerX = 100;
         public static final int spawnPlayerY = 100;
         public static final int delay = 50;
-        public static final int pipeSpeed = 2;
+        public static final int pipeSpeed = 3;
     }
 }
