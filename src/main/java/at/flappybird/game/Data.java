@@ -5,7 +5,7 @@ public class Data {
         public static final String pipeTop = "file:assets/Images/pipe-top.png";
         public static final String pipeBody =
             "file:assets/Images/pipe-body.png";
-        public static final String bird = "file:assets/Images/player.png";
+        public static final String bird = "file:assets/bird.png";
     }
     public static class Settings {
         public static final double gravity = 600;

@@ -19,7 +19,7 @@ public class Controller extends AnimationTimer implements Initializable {
     @FXML Button quitButton;
 
     Player player = new Player();
-    PipeMover pm = new PipeMover(1000, 500, 500);
+    PipeMover pm = new PipeMover(1000, 500, 700);
     boolean dead = false;
 
     @Override
