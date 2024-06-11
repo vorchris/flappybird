@@ -34,8 +34,8 @@ public class Controller extends AnimationTimer implements Initializable {
     Bird bird = new Bird();
     boolean dead = false;
     Pipe pipes[] = new Pipe[3];
-    int pipeSpeed = Data.Settings.pipeSpeed;
     int score = 0;
+    double pipeSpeed = Data.Settings.pipeSpeed;
 
     Media themeSong =
         new Media(new File(Data.Sounds.themeSong).toURI().toString());
@@ -103,6 +103,7 @@ public class Controller extends AnimationTimer implements Initializable {
     public void init() {
         dead = false;
         score = 0;
+        pipeSpeed = Data.Settings.pipeSpeed;
         scoreLabel.setText("Score: " + score);
 
         pane.getChildren().add(bird.getImageView());
@@ -121,11 +122,12 @@ public class Controller extends AnimationTimer implements Initializable {
 
     public void movePipes() {
         for (Pipe pipe : pipes) {
-            pipe.move();
+            pipe.move(pipeSpeed);
             if (pipe.getX() < 0) {
                 pipe.setX(Data.Settings.width);
                 pipe.init();
             }
+            pipeSpeed = pipeSpeed * 1.0001;
         }
     }
 }

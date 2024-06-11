@@ -32,8 +32,8 @@ public class Pipe {
             bird.getBoundsInParent().intersects(bottom.getBoundsInParent());
     }
 
-    public void move() {
-        x -= Data.Settings.pipeSpeed;
+    public void move(double speed) {
+        x -= speed;
         top.setX(x);
         bottom.setX(x);
     }

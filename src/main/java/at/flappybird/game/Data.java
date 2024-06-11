@@ -13,7 +13,7 @@ public class Data {
         public static final int width = 1000;
         public static final int pipeSpeed = 2;
         public static final int gap = 150;
-        public static final int minHeight = 200;
+        public static final int minHeight = 50;
         public static final int maxHeight = 300;
     }
     public static class Sounds {
