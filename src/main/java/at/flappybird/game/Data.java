@@ -15,4 +15,7 @@ public class Data {
         public static final int delay = 50;
         public static final int pipeSpeed = 3;
     }
+    public static class Sounds {
+        public static final String flap = "assets/flap.wav";
+    }
 }

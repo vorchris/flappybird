@@ -1,11 +1,14 @@
 package at.flappybird.game;
 
+import java.io.File;
 import java.time.Duration;
 import java.time.Instant;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,6 +32,10 @@ public class Player {
                 isJumpDelayOver()) {
                 lastJumpTime = Instant.now();
                 System.out.println("jump!");
+                Media flap =
+                    new Media(new File(Data.Sounds.flap).toURI().toString());
+                MediaPlayer mediaPlayer = new MediaPlayer(flap);
+                mediaPlayer.play();
                 speed -= Data.Settings.jumpPower;
             }
         }
