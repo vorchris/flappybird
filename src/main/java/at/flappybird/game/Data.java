@@ -8,9 +8,13 @@ public class Data {
     }
     public static class Settings {
         public static final double gravity = 0.5;
-        public static final double jumpPower = 10;
+        public static final double jumpPower = 7;
         public static final int height = 500;
         public static final int width = 1000;
+        public static final int pipeSpeed = 2;
+        public static final int gap = 150;
+        public static final int minHeight = 200;
+        public static final int maxHeight = 300;
     }
     public static class Sounds {
         public static final String flap = "assets/flap.wav";

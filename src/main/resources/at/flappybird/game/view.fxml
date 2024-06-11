@@ -13,6 +13,6 @@
          </font>
       </Label>
       <Button fx:id="quitButton" layoutX="326.0" layoutY="209.0" mnemonicParsing="false" onAction="#quit" text="Quit" />
-      <Button fx:id="restartButton" layoutX="263.0" layoutY="209.0" mnemonicParsing="false" onAction="#restart" text="Restart" />
+      <Button fx:id="restartButton" layoutX="263.0" layoutY="209.0" mnemonicParsing="false" onAction="#init" text="Restart" />
    </children>
 </Pane>
