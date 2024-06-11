@@ -1,72 +1,33 @@
 package at.flappybird.game;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.stream.IntStream;
-import javafx.geometry.Bounds;
-import javafx.scene.Group;
+
 import javafx.scene.image.ImageView;
 import lombok.Getter;
+import lombok.Setter;
 
-public class Pipe extends Group {
-    @Getter int x, height;
-    ArrayList<ImageView> allImages = new ArrayList<>();
+public class Pipe {
+    @Getter @Setter private int x;
+    @Getter
+    private ImageView top = new ImageView(Data.Images.pipe);
+    @Getter
+    private ImageView bottom = new ImageView(Data.Images.pipe);
+    private static final int gap = 100;
 
-    public Pipe(int height) {
-        int amount = calculateAmount(height);
-        this.height = height;
-        int opening = getRandomGap(amount);
-
-        IntStream.range(0, amount).forEach(i -> {
-            if (!isOpening(i, opening)) {
-                ImageView iw = createImageView(Data.Images.pipeBody, i);
-                this.getChildren().add(iw);
-                allImages.add(iw);
-            }
-        });
-
-        ImageView top = createImageView(Data.Images.pipeTop, opening - 1);
-        top.setScaleY(-1);
-        ImageView bottom = createImageView(Data.Images.pipeTop, opening + 2);
-        this.getChildren().addAll(top, bottom);
-        allImages.add(top);
-        allImages.add(bottom);
-    }
-
-    private int calculateAmount(int height) {
-        return IntStream.iterate(height, h -> h - 32)
-            .takeWhile(h -> h > 0)
-            .map(h -> 1)
-            .sum();
-    }
-
-    private boolean isOpening(int index, int opening) {
-        return index == opening || index == opening + 1;
-    }
-
-    private ImageView createImageView(String imagePath, int position) {
-        ImageView iw = new ImageView(imagePath);
-        iw.setFitHeight(32);
-        iw.setFitWidth(32);
-        iw.setX(0);
-        iw.setY(position * 32);
-        return iw;
-    }
-
-    private int getRandomGap(int amount) {
-        return new Random().ints(3, amount - 1).findFirst().getAsInt();
-    }
-
-    public void setX(int x) {
+    public Pipe(int x) {
         this.x = x;
-        allImages.forEach(a -> a.setX(x));
+
+        int topY = (int)(Math.random() * (1000 - gap));
+        int bottomY = topY + gap;
+        top.setRotate(180);
+        top.setY(topY);
+        bottom.setY(bottomY);
     }
 
-    public boolean colliding(ImageView iw) {
-        Bounds b1 = iw.getBoundsInParent();
-        return b1.getMaxY() >= height || b1.getMinY() <= 0 ||
-            allImages.stream().anyMatch(
-                img -> b1.intersects(img.getBoundsInParent()));
+    public boolean colliding(ImageView player) {
+        ImageView pipeTopImageView = this.top;
+        ImageView pipeBottomImageView = this.bottom;
+        return player.getBoundsInParent().intersects(
+                   pipeTopImageView.getBoundsInParent()) ||
+            player.getBoundsInParent().intersects(
+                pipeBottomImageView.getBoundsInParent());
     }
-
-    public void delete() { allImages.forEach(a -> getChildren().remove(a)); }
 }

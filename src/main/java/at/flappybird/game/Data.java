@@ -2,21 +2,16 @@ package at.flappybird.game;
 
 public class Data {
     public static class Images {
-        // TODO: New pipes
-        public static final String pipeTop = "file:assets/Images/pipe-top.png";
-        public static final String pipeBody =
-            "file:assets/Images/pipe-body.png";
+        public static final String pipe = "file:assets/pipe.png";
         public static final String background = "file:assets/background.png";
         public static final String base = "file:assets/base.png";
         public static final String bird = "file:assets/bird.png";
     }
     public static class Settings {
-        public static final double gravity = 600;
-        public static final double jumpPower = 500;
-        public static final int spawnPlayerX = 100;
-        public static final int spawnPlayerY = 100;
-        public static final int delay = 50;
-        public static final int pipeSpeed = 3;
+        public static final double gravity = 0.5;
+        public static final double jumpPower = 10;
+        public static final int height = 720;
+        public static final int width = 1280;
     }
     public static class Sounds {
         public static final String flap = "assets/flap.wav";
