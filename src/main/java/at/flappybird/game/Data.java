@@ -2,11 +2,12 @@ package at.flappybird.game;
 
 public class Data {
     public static class Images {
+        // TODO: New pipes
         public static final String pipeTop = "file:assets/Images/pipe-top.png";
         public static final String pipeBody =
             "file:assets/Images/pipe-body.png";
-        public static final String background = "file:assets/Images/background.png";
-        public static final String base = "file:assets/Images/base.png";
+        public static final String background = "file:assets/background.png";
+        public static final String base = "file:assets/base.png";
         public static final String bird = "file:assets/bird.png";
     }
     public static class Settings {
