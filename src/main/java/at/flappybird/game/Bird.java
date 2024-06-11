@@ -11,7 +11,7 @@ public class Bird {
     public Bird() {
         speed = 0;
         imageView = new ImageView(Data.Images.bird);
-        imageView.setX(100);
+        imageView.setX(250);
         imageView.setY(100);
     }
 
@@ -41,7 +41,7 @@ public class Bird {
 
     public void reset() {
         speed = 0;
-        imageView.setX(100);
+        imageView.setX(250);
         imageView.setY(100);
     }
 }

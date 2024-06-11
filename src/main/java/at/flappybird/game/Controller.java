@@ -29,7 +29,6 @@ public class Controller extends AnimationTimer implements Initializable {
     BackgroundImage backgroundImage =
         new BackgroundImage(bgImage, null, BackgroundRepeat.NO_REPEAT,
                             BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-    @FXML ImageView base = new ImageView(Data.Images.base);
 
     Bird bird = new Bird();
     boolean dead = false;
