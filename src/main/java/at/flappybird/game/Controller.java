@@ -44,10 +44,6 @@ public class Controller extends AnimationTimer implements Initializable {
         themeSongPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         pane.setBackground(new Background(backgroundImage));
 
-        gameOverLable.toFront();
-        restartButton.toFront();
-        quitButton.toFront();
-
         init();
 
         this.start();
@@ -114,6 +110,11 @@ public class Controller extends AnimationTimer implements Initializable {
             pane.getChildren().add(pipes[i].getTop());
             pane.getChildren().add(pipes[i].getBottom());
         }
+
+        scoreLabel.toFront();
+        gameOverLable.toFront();
+        restartButton.toFront();
+        quitButton.toFront();
 
         gameOverLable.setVisible(false);
         restartButton.setVisible(false);
