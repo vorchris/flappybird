@@ -29,8 +29,8 @@ public class Bird {
     public void jump() {
         Media sound = new Media(new File(Data.Sounds.flap).toURI().toString());
         MediaPlayer flapPlayer = new MediaPlayer(sound);
-        speed = -Data.Settings.jumpPower;
         flapPlayer.play();
+        speed = -Data.Settings.jumpPower;
     }
 
     public void fall() { speed += Data.Settings.gravity; }
