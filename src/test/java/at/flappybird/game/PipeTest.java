@@ -21,28 +21,4 @@ public class PipeTest extends ApplicationTest {
     @Test
     void testInit() {
     }
-
-    @Test
-    void getX() {
-    }
-
-    @Test
-    void getTop() {
-    }
-
-    @Test
-    void getBottom() {
-    }
-
-    @Test
-    void isPassed() {
-    }
-
-    @Test
-    void setX() {
-    }
-
-    @Test
-    void setPassed() {
-    }
 }

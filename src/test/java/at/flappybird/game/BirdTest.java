@@ -37,12 +37,4 @@ public class BirdTest extends ApplicationTest {
     @Test
     void reset() {
     }
-
-    @Test
-    void getImageView() {
-    }
-
-    @Test
-    void getSpeed() {
-    }
 }
