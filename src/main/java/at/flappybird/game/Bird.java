@@ -12,8 +12,6 @@ import lombok.Getter;
 public class Bird {
     @Getter @FXML private ImageView imageView;
     @Getter private double speed;
-    private Media sound = new Media(new File(Data.Sounds.flap).toURI().toString());
-    private MediaPlayer flapPlayer = new MediaPlayer(sound);
 
     public Bird() {
         speed = 0;
@@ -29,6 +27,8 @@ public class Bird {
     }
 
     public void jump() {
+        Media sound = new Media(new File(Data.Sounds.flap).toURI().toString());
+        MediaPlayer flapPlayer = new MediaPlayer(sound);
         speed = -Data.Settings.jumpPower;
         flapPlayer.play();
     }

@@ -36,17 +36,12 @@ public class Controller extends AnimationTimer implements Initializable {
     Pipe pipes[] = new Pipe[3];
     int score = 0;
     double pipeSpeed = Data.Settings.pipeSpeed;
-
-    Media themeSong =
-        new Media(new File(Data.Sounds.themeSong).toURI().toString());
-    Media die = new Media(new File(Data.Sounds.die).toURI().toString());
-    Media point = new Media(new File(Data.Sounds.point).toURI().toString());
+    Media themeSong = new Media(new File(Data.Sounds.themeSong).toURI().toString());
     MediaPlayer themeSongPlayer = new MediaPlayer(themeSong);
-    MediaPlayer diePlayer = new MediaPlayer(die);
-    MediaPlayer pointPlayer = new MediaPlayer(point);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        themeSongPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         pane.setBackground(new Background(backgroundImage));
 
         gameOverLable.toFront();
@@ -61,6 +56,7 @@ public class Controller extends AnimationTimer implements Initializable {
     @Override
     public void handle(long l) {
         themeSongPlayer.play();
+
         if (!dead) {
             bird.move();
             movePipes();
@@ -70,16 +66,22 @@ public class Controller extends AnimationTimer implements Initializable {
                     pipe.setPassed(true);
                     score++;
                     scoreLabel.setText("Score: " + score);
+                    Media point = new Media(new File(Data.Sounds.point).toURI().toString());
+                    MediaPlayer pointPlayer = new MediaPlayer(point);
                     pointPlayer.play();
                 }
                 if (bird.colliding(pipe)) {
                     dead = true;
+                    Media die = new Media(new File(Data.Sounds.die).toURI().toString());
+                    MediaPlayer diePlayer = new MediaPlayer(die);
                     diePlayer.play();
                 }
             }
 
             if (bird.outOfBounds()) {
                 dead = true;
+                Media die = new Media(new File(Data.Sounds.die).toURI().toString());
+                MediaPlayer diePlayer = new MediaPlayer(die);
                 diePlayer.play();
             }
         } else if (dead) {
