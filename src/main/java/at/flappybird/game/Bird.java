@@ -12,6 +12,7 @@ import lombok.Getter;
 public class Bird {
     @Getter @FXML private ImageView imageView;
     @Getter private double speed;
+    @Getter private boolean hitboxOn = true;
 
     public Bird() {
         speed = 0;
@@ -23,6 +24,8 @@ public class Bird {
     public void handleInput(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.SPACE) {
             jump();
+        } else if (keyEvent.getCode() == KeyCode.SHIFT) {
+            hitboxOn = !hitboxOn;
         }
     }
 
@@ -43,14 +46,14 @@ public class Bird {
     public boolean passed(int x) { return imageView.getX() > x; }
 
     public boolean outOfBounds() {
-        return imageView.getY() < 0 || imageView.getY() > Data.Settings.height;
+        return (imageView.getY() < 0 || imageView.getY() > Data.Settings.height) && hitboxOn;
     }
 
     public boolean colliding(Pipe pipe) {
-        return imageView.getBoundsInParent().intersects(
+        return (imageView.getBoundsInParent().intersects(
                    pipe.getTop().getBoundsInParent()) ||
             imageView.getBoundsInParent().intersects(
-                pipe.getBottom().getBoundsInParent());
+                pipe.getBottom().getBoundsInParent())) && !hitboxOn;
     }
 
     public void reset() {
